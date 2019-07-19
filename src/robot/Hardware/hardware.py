@@ -49,6 +49,7 @@ class Motor:
 		# values
 		self.off = 50
 		self.forwardMin = 68
+		self.speed = None
 		# motor setup
 		self.setup()
 		print("Motor initialization SUCCESS")
@@ -77,6 +78,7 @@ class Motor:
 	
 	def set_speed(self,speed):
 		self.pwm.channels[0].duty_cycle = int(3932+ speed*2620/100)
+		self.speed = speed
 
 if __name__ == "__main__":
 	print("test")

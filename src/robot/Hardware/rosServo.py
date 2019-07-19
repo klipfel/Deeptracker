@@ -4,7 +4,9 @@ from std_msgs.msg import Float64
 from hardware import * # library for the servomotor and the motor.
 
 def callback(msg):
-	pass
+	# set the new command for the servomotor.
+	rospy.loginfo("[" + rospy.get_caller_id() + "] Command applied : " + str(msg.data))
+	servomotor.set_bearing(msg.data)
 
 def main():
     # Node initialization.
